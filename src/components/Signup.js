@@ -7,13 +7,14 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
-import Paper from '@mui/material/Paper'
+import { Paper, AppBar } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { API } from './global';
 import 'react-toastify/dist/ReactToastify.css';
 import * as yup from "yup"
 import { ToastContainer, toast } from 'react-toastify';
+import { Toolbar } from '@mui/material';
 
 const signupValidationSchema = yup.object({
     username: yup.string().required("Why not fill this User-Name?").min(1),
@@ -54,118 +55,127 @@ export function Signup() {
             })
     }
     return <>
-        <Box sx={{
-            textAlign: "center",
-            minHeight: "100vh",
-            display: "grid",
-            placeContent: "center"
-        }}
-            className='home-sd'
-        >
-            <Paper elevation={12}
-                sx={{
-                    padding: "50px 15px",
-                    width: { sm: "400px", md: "400px" },
-                    borderRadius: "20px",
-                }}>
-                <Container component="main" maxWidth="xs" sx={{ fontFamily: "Open Sans, sans-serif" }}>
-                    <Box sx={{ display: "flex", justifyContent: "center", mb: 3, gap: 1 }}>
-                        <Avatar sx={{ bgcolor: 'success.main' }}>
-                            <VpnKeyIcon />
-                        </Avatar>
-                        <Typography component="h1" variant="h5" sx={{ mt: "5px" }}>
-                            Sign up
-                        </Typography>
-                    </Box>
-                    <Box component="form" onSubmit={handleSubmit} >
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    focused
-                                    required
-                                    fullWidth
-                                    id="username"
-                                    name="username"
-                                    autoComplete="username"
-                                    value={values.username}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    error={touched.username && errors.username}
-                                    helperText={touched.username && errors.username ? errors.username : null}
-                                    className='textfield-auth'
-                                    label="User-Name"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    autoComplete="phone"
-                                    id="phone"
-                                    name="phone"
-                                    value={values.phone}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    error={touched.phone && errors.phone}
-                                    helperText={touched.phone && errors.phone ? errors.phone : null}
-                                    className='textfield-auth'
-                                    label="Phone Number"
-                                    variant="outlined"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    autoComplete="email"
-                                    id="email"
-                                    name="email"
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    error={touched.email && errors.email}
-                                    helperText={touched.email && errors.email ? errors.email : null}
-                                    className='textfield-auth'
-                                    label="e-mail ID"
-                                    variant="outlined"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    value={values.password}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    error={touched.password && errors.password}
-                                    helperText={touched.password && errors.password ? errors.password : null}
-                                    className='textfield-auth'
-                                    type='password'
-                                    label="Password"
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    id="password"
-                                    autoComplete="new-password"
-                                />
-                            </Grid>
-                        </Grid>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            color="success"
-                            variant="contained"
-
-                            sx={{ mt: 3, mb: 2 }}
-                        >
-                            Sign Up
-                        </Button>
-                        <ToastContainer />
-                        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                            <Link className='auth-link' to="/users/login">Already have an account</Link>
-                            <Link variant="contained" onClick={() => navigate(-1)}>Back</Link>
+        <div className='home-pz'>
+            <AppBar className='navbar' position="relative">
+                <Toolbar>
+                    <Typography onClick={() => navigate('/')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Piz<span className='logo-F'>za</span>Hunt
+                    </Typography>
+                    <Button onClick={() => navigate('/users/login')} color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+            <Box sx={{
+                textAlign: "center",
+                minHeight: "100vh",
+                display: "grid",
+                placeContent: "center"
+            }}
+            >
+                <Paper elevation={12}
+                    sx={{
+                        padding: "50px 15px",
+                        width: { sm: "400px", md: "400px" },
+                        borderRadius: "20px",
+                    }}>
+                    <Container component="main" maxWidth="xs" sx={{ fontFamily: "Open Sans, sans-serif" }}>
+                        <Box sx={{ display: "flex", justifyContent: "center", mb: 3, gap: 1 }}>
+                            <Avatar sx={{ bgcolor: 'success.main' }}>
+                                <VpnKeyIcon />
+                            </Avatar>
+                            <Typography component="h1" variant="h5" sx={{ mt: "5px" }}>
+                                Sign up
+                            </Typography>
                         </Box>
-                    </Box>
-                </Container>
-            </Paper>
-        </Box>
+                        <Box component="form" onSubmit={handleSubmit} >
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        focused
+                                        required
+                                        fullWidth
+                                        id="username"
+                                        name="username"
+                                        autoComplete="username"
+                                        value={values.username}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        error={touched.username && errors.username}
+                                        helperText={touched.username && errors.username ? errors.username : null}
+                                        className='textfield-auth'
+                                        label="User-Name"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        autoComplete="phone"
+                                        id="phone"
+                                        name="phone"
+                                        value={values.phone}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        error={touched.phone && errors.phone}
+                                        helperText={touched.phone && errors.phone ? errors.phone : null}
+                                        className='textfield-auth'
+                                        label="Phone Number"
+                                        variant="outlined"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        autoComplete="email"
+                                        id="email"
+                                        name="email"
+                                        value={values.email}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        error={touched.email && errors.email}
+                                        helperText={touched.email && errors.email ? errors.email : null}
+                                        className='textfield-auth'
+                                        label="e-mail ID"
+                                        variant="outlined"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        value={values.password}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        error={touched.password && errors.password}
+                                        helperText={touched.password && errors.password ? errors.password : null}
+                                        className='textfield-auth'
+                                        type='password'
+                                        label="Password"
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        id="password"
+                                        autoComplete="new-password"
+                                    />
+                                </Grid>
+                            </Grid>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                color="success"
+                                variant="contained"
+
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                Sign Up
+                            </Button>
+                            <ToastContainer />
+                            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                                <Link className='auth-link' to="/users/login">Already have an account</Link>
+                                <Link variant="contained" onClick={() => navigate(-1)}>Back</Link>
+                            </Box>
+                        </Box>
+                    </Container>
+                </Paper>
+            </Box>
+        </div>
     </>;
 }

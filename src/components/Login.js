@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+import { Box, AppBar, Toolbar } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar'
@@ -59,6 +59,14 @@ export function Login() {
 
     return (
         <div className='home-sd'>
+            <AppBar className='navbar' position="relative">
+                <Toolbar>
+                    <Typography onClick={() => navigate('/')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Piz<span className='logo-F'>za</span>Hunt
+                    </Typography>
+                    <Button onClick={() => navigate('/users/signup')} color="inherit">Signup</Button>
+                </Toolbar>
+            </AppBar>
             <Box sx={{ minHeight: "100vh", display: "grid", placeContent: "center" }}>
                 <Paper elevation={12}
                     sx={{
