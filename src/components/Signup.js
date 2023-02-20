@@ -13,7 +13,8 @@ import { useFormik } from 'formik';
 import { API } from './global';
 import 'react-toastify/dist/ReactToastify.css';
 import * as yup from "yup"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Toolbar } from '@mui/material';
 
 const signupValidationSchema = yup.object({
@@ -47,9 +48,13 @@ export function Signup() {
             .then((data) => data.json())
             .then((data) => {
                 if (data.message === "Username already exists") {
-                    toast.error('Username already exists')
+                    toast.error('Username already exists!', {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
                 } else {
-                    toast.success('successful')
+                    toast.success('Successfully Created Account!', {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
                     navigate('/users/login')
                 }
             })
@@ -66,7 +71,7 @@ export function Signup() {
             </AppBar>
             <Box sx={{
                 textAlign: "center",
-                minHeight: "100vh",
+                minHeight: "86vh",
                 display: "grid",
                 placeContent: "center"
             }}
@@ -76,6 +81,7 @@ export function Signup() {
                         padding: "50px 15px",
                         width: { sm: "400px", md: "400px" },
                         borderRadius: "20px",
+                        margin:"60px"
                     }}>
                     <Container component="main" maxWidth="xs" sx={{ fontFamily: "Open Sans, sans-serif" }}>
                         <Box sx={{ display: "flex", justifyContent: "center", mb: 3, gap: 1 }}>
@@ -167,7 +173,6 @@ export function Signup() {
                             >
                                 Sign Up
                             </Button>
-                            <ToastContainer />
                             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                                 <Link className='auth-link' to="/users/login">Already have an account</Link>
                                 <Link variant="contained" onClick={() => navigate(-1)}>Back</Link>

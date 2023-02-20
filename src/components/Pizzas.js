@@ -91,7 +91,7 @@ export function Pizzas({ pizza, id }) {
                 </Typography>
                 <Typography variant="body2" sx={{ display: "flex", justifyContent: "space-between", gap: 1, marginTop: "15px" }}>
                     <Typography variant="h6">Price:{price}</Typography>
-                    <Button variant="contained" startIcon={<AddShoppingCartIcon />} sx={{ cursor: "pointer", fontSize: "13px" }} color="success">Cart</Button>
+                    <Button variant="contained" startIcon={<AddShoppingCartIcon />} sx={{ cursor: "pointer", fontSize: "13px" }} color="success">Add to Cart</Button>
                 </Typography>
             </CardContent>
         </Card>

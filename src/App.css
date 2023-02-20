@@ -41,10 +41,10 @@
 }
 
 .home-pz {
-  background-image: url("https://img.freepik.com/free-vector/pizza-menu-chalkboard-background_1284-11715.jpg?w=2000");
+  background-image: url("https://t4.ftcdn.net/jpg/02/80/76/25/360_F_280762521_j1sQEgHTmtfoUcAEgoPt1gdBu6yinZQN.jpg");
   background-size: cover;
+  object-fit: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  opacity: 2;
 }

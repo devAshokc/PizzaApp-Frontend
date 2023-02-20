@@ -22,10 +22,14 @@ export function PizzasList() {
         <div className="home-pz">
             <AppBar className='navbar' position="fixed">
                 <Toolbar>
-                    <Typography onClick={() => navigate('/')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                 <Typography onClick={() => navigate('/pizzas/menu')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Piz<span className='logo-F'>za</span>Hunt
                     </Typography>
-                    <Button startIcon={<LocalMallIcon />} onClick={() => navigate('')} color="inherit">Cart</Button>
+                  <Box sx={{gap:2}}>
+                    <Button startIcon={<LocalMallIcon fontSize="small" />} onClick={()=>navigate('/pizzas/cart')} color="inherit">Cart</Button>
+                  {/* <Button  onClick={() => navigate('/pizzas/add')} color="inherit">Add Pizza</Button> */}
+                    <Button onClick={() => navigate('/')} color="inherit">Logout</Button>
+                  </Box>
                 </Toolbar>
             </AppBar>
             <Box sx={{ display: "flex", flexWrap: "wrap", width: "100%", justifyContent: "space-around", gap: 3, mt: 8 }}>

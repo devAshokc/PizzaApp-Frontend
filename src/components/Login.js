@@ -13,7 +13,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { API } from './global';
 import * as yup from "yup"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const loginValidationSchema = yup.object({
     username: yup.string().required("Why not fill this UserName?"),
@@ -47,10 +48,14 @@ export function Login() {
                     if (data.message === "Successful login 🎊🎊") {
                         // console.log(data.message)
                         // console.log(localStorage)
-                        // toast.success('Successful login 🎊🎊')
+                        toast.success('Successful login 🎊🎊!',{
+                            position:toast.POSITION.TOP_RIGHT
+                        })
                         navigate(`/pizzas/menu`)
                     } else {
-                        toast.error('Invalid Credentials')
+                        toast.error('Opps Invalid Credentials!',{
+                            position:toast.POSITION.TOP_RIGHT
+                        })
                     }
                 }
             })
@@ -67,7 +72,7 @@ export function Login() {
                     <Button onClick={() => navigate('/users/signup')} color="inherit">Signup</Button>
                 </Toolbar>
             </AppBar>
-            <Box sx={{ minHeight: "100vh", display: "grid", placeContent: "center" }}>
+            <Box sx={{ minHeight: "86vh", display: "grid", placeContent: "center" }}>
                 <Paper elevation={12}
                     sx={{
                         height: "400px",
@@ -138,7 +143,6 @@ export function Login() {
                             >
                                 login
                             </Button>
-                            <ToastContainer />
                             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                                 <Link className='auth-link' to="/users/signup">Create new account</Link>
                                 <Link variant="contained" onClick={() => navigate(-1)}>Back</Link>
