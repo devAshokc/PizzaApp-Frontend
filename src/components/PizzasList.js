@@ -11,14 +11,21 @@ export function PizzasList() {
     const [pizzaList, setPizzaList] = useState([])
     //step-1
     const{cart}= useCartContext()
+    const token = localStorage.getItem('Authorization')
+    console.log(token)
     const getPizzas = () => {
         fetch(`${API}/pizzas/menu`, {
             method: "GET",
+            headers :{
+                Authorization: token
+            }
+          
         })
             .then((data) => data.json())
             .then((msg1) => setPizzaList(msg1))
     }
     //step-2
+    // console.log(pizzaList)
     useEffect(() => getPizzas(), [])
     const navigate = useNavigate()
     return <>
@@ -40,7 +47,7 @@ export function PizzasList() {
                 </Toolbar>
             </AppBar>
             <Box sx={{ display: "flex", flexWrap: "wrap", width: "100%", justifyContent: "space-around", gap: 3, mt: 8 }}>
-                {pizzaList.map((n, i) =>
+                {pizzaList.length > 0 && pizzaList.map((n, i) =>
                     <Pizzas
                         pizza={n}
                         key={n.id}
