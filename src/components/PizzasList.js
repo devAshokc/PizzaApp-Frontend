@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Pizzas } from "./Pizzas";
 import { API } from "./global.js"
+import Badge from '@mui/material/Badge';
 import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box';
+import { useCartContext } from './context/CartContext';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export function PizzasList() {
     const [pizzaList, setPizzaList] = useState([])
     //step-1
+    const{cart}= useCartContext()
     const getPizzas = () => {
         fetch(`${API}/pizzas/menu`, {
             method: "GET",
@@ -26,7 +29,11 @@ export function PizzasList() {
                         Piz<span className='logo-F'>za</span>Hunt
                     </Typography>
                   <Box sx={{gap:2}}>
-                    <Button startIcon={<LocalMallIcon fontSize="small" />} onClick={()=>navigate('/pizzas/cart')} color="inherit">Cart</Button>
+                    <Button>
+                    <Badge color='success' badgeContent= {cart.length} onClick={()=>navigate('/pizzas/menu/cart')}>
+                    <ShoppingCartIcon sx={{cursor:"pointer", color:"white"}} />
+                    </Badge>
+                    </Button>
                   {/* <Button  onClick={() => navigate('/pizzas/add')} color="inherit">Add Pizza</Button> */}
                     <Button onClick={() => navigate('/')} color="inherit">Logout</Button>
                   </Box>

@@ -11,8 +11,10 @@ import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
+import { useCartContext } from './context/CartContext';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import InfoIcon from '@mui/icons-material/Info';
+
 export function Pizzas({ pizza, id }) {
     const [Quantity, setQuantity] = useState(1)
     const [Variants, setVariants] = useState('small')
@@ -22,8 +24,16 @@ export function Pizzas({ pizza, id }) {
     const handleChange2 = (event) => {
         setQuantity(event.target.value)
     }
+
     const navigate = useNavigate()
     const price = pizza.prices[0][Variants] * [Quantity]
+    const {addtoCart}= useCartContext()
+    // console.log( cart, user)
+    const token = localStorage.getItem("Authorization")
+
+    if(!token){
+      navigate("/")
+    }
     return <>
         <Card className="pizza-container"
             elevation={12} sx={{
@@ -91,7 +101,7 @@ export function Pizzas({ pizza, id }) {
                 </Typography>
                 <Typography variant="body2" sx={{ display: "flex", justifyContent: "space-between", gap: 1, marginTop: "15px" }}>
                     <Typography variant="h6">Price:{price}</Typography>
-                    <Button variant="contained" startIcon={<AddShoppingCartIcon />} sx={{ cursor: "pointer", fontSize: "13px" }} color="success">Add to Cart</Button>
+                    <Button variant="contained" startIcon={<AddShoppingCartIcon />} sx={{ cursor: "pointer", fontSize: "13px" }} color="success" onClick={()=> addtoCart(pizza, Quantity, Variants, price)}>Add to Cart</Button>
                 </Typography>
             </CardContent>
         </Card>

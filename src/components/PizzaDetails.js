@@ -32,8 +32,8 @@ export function PizzaDetails() {
                 <Button onClick={() => navigate('/pizzas/menu')} color="inherit">Back to Pizzas</Button>
             </Toolbar>
         </AppBar>
-        <Box sx={{ minHeight: "100vh", marginTop: "1rem" }}>
-            <Box sx={{ width: "70%", margin: "0px auto", display: "flex", flexDirection: { xs: "column", sm: "row", md: "row" } }}>
+        <Box sx={{ minHeight: "100vh", marginTop: "1rem"}}>
+            <Box sx={{ width: "70%", margin: "0px auto", display: "flex", gap:1 , flexDirection: { xs: "column", sm: "row", md: "row" } }}>
                 <Box
                     component="img"
                     sx={{
@@ -41,16 +41,16 @@ export function PizzaDetails() {
                         objectFit: 'cover',
                         objectPosition: 'center',
                         height: { xs: 350, md: 450 },
-                        width: { xs: '210', md: '310' },
-                        borderRadius: "3%"
+                        width: { xs: '210', md: '410' },
+                        borderRadius: "5%"
                     }}
                     alt="The house from the offer."
                     src={PizzaDetail.image}
                 />
-                <Box sx={{ padding: { xs: "20px 20px", sm: "70px 20px", md: "70px 20px" }, textAlign: { xs: "left", sm: "left" } }}>
+                <Box sx={{ padding: { xs: "20px 20px", sm: "70px 20px", md: "70px 50px" }, textAlign: { xs: "left", sm: "left" } }}>
                     <h1 style={{ fontSize: "20px" }}>{PizzaDetail.name}</h1>
                     <h1 style={styles}>⭐ {PizzaDetail.category}</h1>
-                    <Button variant="contained" startIcon={<ArrowLeftIcon />} onClick={() => navigate(-1)}>Back</Button>
+                    <Button variant="contained" color='success' startIcon={<ArrowLeftIcon />} onClick={() => navigate(-1)}>Back</Button>
                 </Box>
             </Box>
         </Box>
