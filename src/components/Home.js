@@ -21,7 +21,8 @@ export function Home() {
             </AppBar>
             <div className='intro-container' >
                 <div className='intro'>
-                    <h1>Grab Your Delicious Pizzas!! </h1>
+                    <h1> Piz<span className='logo-F'>za</span>Hunt Brings?</h1>
+                    <h1>Delicious and Hot Pizzas Just for You !! <p>Hurry Up and Grab it !!</p></h1>
                     <h1>Check out</h1>
                 </div>
                 <Button
