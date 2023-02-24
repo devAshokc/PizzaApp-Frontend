@@ -48,6 +48,12 @@ function Checkout() {
     //           .then((list) => console.log(list))
     //   }
 
+
+    // function orderItems(){
+      
+    //   // localStorage.clear();
+    // }
+
       let navigate = useNavigate()
 
 const token = localStorage.getItem("Authorization")
@@ -105,7 +111,7 @@ if(!token){
         <hr/>
 
         
-        {/* <Button variant="contained" color="success"sx={{padding:"7px 15px",margin:"8px 0px 8px 0px",width:"100%"}} onClick={orderItems}>Make Payment</Button> */}
+        <Button variant="contained" color="success"sx={{padding:"7px 15px",margin:"8px 0px 8px 0px",width:"100%"}} onClick={()=>navigate('/pizzas/menu/cart/checkout/orderSuccess')}>Make Payment</Button>
 </Paper>
 
   </>

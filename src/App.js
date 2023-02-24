@@ -10,6 +10,8 @@ import AddPizzas from './components/AddPizzas.js'
 import Cart from './components/Cart.js'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { OrderSuccess } from './components/OrderSuccess';
+import { NotFound } from './components/NotFound';
 function App() {
   
   const token = localStorage.getItem("Authorization")
@@ -32,6 +34,8 @@ function App() {
           <Route path='/pizzas/add' element={<AddPizzas />} />
           <Route path='/pizzas/menu/:id' element={<PizzaDetails />} />
           <Route path='/pizzas/menu/cart/checkout' element={<Checkout/>}/>
+          <Route path='/pizzas/menu/cart/checkout/orderSuccess' element={<OrderSuccess/>}/>
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       </div>
     </div>
