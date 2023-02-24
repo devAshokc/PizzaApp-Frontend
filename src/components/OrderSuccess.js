@@ -21,7 +21,7 @@ export function OrderSuccess() {
       </AppBar>
       <div className='order-success'>
         <h3 style={styles}>Order successfully placed.</h3>
-        <h4>Thank you for shopping. Visit again.</h4>
+        <h4>Thank you for Ordered Check your mail to Track Pizzas. Visit again.</h4>
       </div>
     </div>
   );
