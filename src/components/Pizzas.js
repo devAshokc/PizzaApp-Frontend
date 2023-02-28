@@ -12,10 +12,9 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
 import { useCartContext } from './context/CartContext';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import InfoIcon from '@mui/icons-material/Info';
 
-export function Pizzas({ pizza, id }) {
+export function Pizzas({ pizza, id, username }) {
     const [Quantity, setQuantity] = useState(1)
     const [Variants, setVariants] = useState('small')
     const handleChange1 = (event) => {
@@ -60,7 +59,7 @@ export function Pizzas({ pizza, id }) {
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                     <Typography variant="h8" sx={{ marginBottom: "15px", fontSize: "1rem" }} component="div">
                         {pizza.name}
-                        <IconButton color="primary" size="small" onClick={() => navigate(`/pizzas/menu/${id}`)}>
+                        <IconButton color="primary" size="small" onClick={() => navigate(`/pizzas/menu/${username}/${id}`)}>
                             <InfoIcon />
                         </IconButton>
                     </Typography>
@@ -101,7 +100,7 @@ export function Pizzas({ pizza, id }) {
                 </Typography>
                 <Typography variant="body2" sx={{ display: "flex", justifyContent: "space-between", gap: 1, marginTop: "15px" }}>
                     <Typography variant="h6">Price:{price}</Typography>
-                    <Button variant="contained" startIcon={<AddShoppingCartIcon />} sx={{ cursor: "pointer", fontSize: "13px" }} color="success" onClick={()=> addtoCart(pizza, Quantity, Variants, price)}>Add to Cart</Button>
+                    <Button variant="contained" sx={{ cursor: "pointer", fontSize: "13px" }} color="success" onClick={()=> addtoCart(pizza, Quantity, Variants, price)}>Add to Cart</Button>
                 </Typography>
             </CardContent>
         </Card>

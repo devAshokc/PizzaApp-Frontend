@@ -72,7 +72,7 @@ function Cart() {
 }
 <hr/>
 <Box sx={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-<Button variant="contained" color='success' sx={{padding:"7px 15px",margin:"8px 0px 8px 0px"}} onClick={() => navigate("/pizzas/menu")}>Continue Shopping 😋</Button>
+<Button variant="contained" color='success' sx={{padding:"7px 15px",margin:"8px 0px 8px 0px"}} onClick={() => navigate(-1)}>Continue Shopping 😋</Button>
 {
     cart.length > 0 && cart ? <Button variant="contained" color='success' sx={{padding:"7px 15px",margin:"8px 0px 8px 0px"}} onClick={clearCart}>Clear Cart</Button>
     :

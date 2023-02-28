@@ -3,12 +3,15 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API } from './global.js'
 import Box from '@mui/material/Box'
+import Badge from "@mui/material/Badge";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { styled } from "@mui/material/styles";
 import { Button, AppBar, Toolbar, Typography } from '@mui/material'
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 
 export function PizzaDetails() {
     const navigate = useNavigate()
-    const { id } = useParams();
+    const { id, username } = useParams();
     const [PizzaDetail, setPizzaDetail] = useState({});
     // const getUserDetails = () => {
       
@@ -23,12 +26,49 @@ export function PizzaDetails() {
         color: PizzaDetail.category === 'nonveg' ? "red" : "green",
         fontSize: "20px"
     };
+    const StyledBadge = styled(Badge)(({ theme }) => ({
+        "& .MuiBadge-badge": {
+          backgroundColor: "#44b700",
+          color: "#44b700",
+          boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+          "&::after": {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            borderRadius: "50%",
+            animation: "ripple 1.2s infinite ease-in-out",
+            border: "1px solid currentColor",
+            content: '""',
+          },
+        },
+        "@keyframes ripple": {
+          "0%": {
+            transform: "scale(.8)",
+            opacity: 1,
+          },
+          "100%": {
+            transform: "scale(2.4)",
+            opacity: 0,
+          },
+        },
+      }));
     return <>
         <AppBar className='navbar' position="static">
             <Toolbar>
                 <Typography onClick={() => navigate('/pizzas/menu')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Piz<span className='logo-F'>za</span>Hunt
                 </Typography>
+                <StyledBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "Top", horizontal: "right" }}
+                variant="dot"
+              >
+                <Button startIcon={<AccountCircleIcon />} color="inherit">
+                  {username}
+                </Button>
+              </StyledBadge>
                 <Button onClick={() => navigate('/pizzas/menu')} color="inherit">Back to Pizzas</Button>
             </Toolbar>
         </AppBar>

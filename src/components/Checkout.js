@@ -12,6 +12,11 @@ import 'react-toastify/dist/ReactToastify.css';
 function Checkout() {
 
     const { cart, total_price, total_items } = useCartContext()
+    const handleClick = () => {
+      localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    };
     // const { user, user1 } = UserAuth()
 
     // const email = localStorage.getItem("email")
@@ -69,7 +74,9 @@ if(!token){
                     Piz<span className='logo-F'>za</span>Hunt
                 </Typography>
                 <Button onClick={() => navigate('/pizzas/menu/cart')} color="inherit">Cart</Button>
-                <Button onClick={() => navigate('/pizzas/menu')} color="inherit">Pizzas</Button>
+                <Button onClick={handleClick} color="inherit">
+                Logout
+              </Button>
             </Toolbar>
         </AppBar>
 <Paper sx={{padding:"30px 10px",width:{xs:"95%",sm:"90%",md:"50%"},margin:"0px auto",textAlign:"center", marginTop:"10px"}}>

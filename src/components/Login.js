@@ -51,7 +51,7 @@ export function Login() {
                         toast.success('Successful login 🎊🎊!',{
                             position:toast.POSITION.TOP_RIGHT
                         })
-                        navigate(`/pizzas/menu`)
+                        navigate(`/pizzas/menu/${loginUser.username}`)
                     } else {
                         toast.error('Opps Invalid Credentials!',{
                             position:toast.POSITION.TOP_RIGHT

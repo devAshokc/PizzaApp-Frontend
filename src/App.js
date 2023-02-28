@@ -29,10 +29,10 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/users/Signup' element={<Signup />} />
           <Route path='/users/login' element={<Login />} />
-          <Route path='/pizzas/menu' element={<PizzasList />} />
+          <Route path='/pizzas/menu/:username' element={<PizzasList />} />
           <Route path='/pizzas/menu/cart' element={<Cart />} />
           <Route path='/pizzas/add' element={<AddPizzas />} />
-          <Route path='/pizzas/menu/:id' element={<PizzaDetails />} />
+          <Route path='/pizzas/menu/:username/:id' element={<PizzaDetails />} />
           <Route path='/pizzas/menu/cart/checkout' element={<Checkout/>}/>
           <Route path='/pizzas/menu/cart/checkout/orderSuccess' element={<OrderSuccess/>}/>
           <Route path="*" element={<NotFound/>} />
