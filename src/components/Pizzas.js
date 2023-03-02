@@ -37,7 +37,7 @@ const UsernameContext = React.createContext()
             elevation={12} sx={{
                 margin: 2,
                 width: "300px",
-                borderRadius: 3,
+                borderRadius: 5,
                 backgroundColor:"hsl(0deg 1% 15%)"
             }}>
 
