@@ -60,7 +60,7 @@ export function Signup() {
             })
     }
     return <>
-        <div className='home-pz'>
+        <div className='home-signup'>
             <AppBar className='navbar' position="relative">
                 <Toolbar>
                     <Typography onClick={() => navigate('/')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>

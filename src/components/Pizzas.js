@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import Card from '@mui/material/Card';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,14 +7,13 @@ import Select from '@mui/material/Select';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
 import { useCartContext } from './context/CartContext';
 import InfoIcon from '@mui/icons-material/Info';
-
-export function Pizzas({ pizza, id, username }) {
+const UsernameContext = React.createContext()
+ function Pizzas({ pizza, id, username, children}) {
     const [Quantity, setQuantity] = useState(1)
     const [Variants, setVariants] = useState('small')
     const handleChange1 = (event) => {
@@ -39,6 +38,7 @@ export function Pizzas({ pizza, id, username }) {
                 margin: 2,
                 width: "300px",
                 borderRadius: 3,
+                backgroundColor:"hsl(0deg 1% 15%)"
             }}>
 
             <Box
@@ -46,9 +46,9 @@ export function Pizzas({ pizza, id, username }) {
                 sx={{
                     margin: 0,
                     cursor: "pointer",
-                    objectFit: 'cover',
+                    objectFit: 'contain',
                     objectPosition: 'center',
-                    height: { xs: 250, md: 250 },
+                    height: '299px',
                     width: { xs: "100%", md: "100%" },
                     borderRadius: "2%"
                 }}
@@ -57,18 +57,21 @@ export function Pizzas({ pizza, id, username }) {
             />
             <CardContent>
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                    <Typography variant="h8" sx={{ marginBottom: "15px", fontSize: "1rem" }} component="div">
+                    <Typography variant="h8" sx={{ marginBottom: "15px", fontSize: "1rem", color:"whitesmoke" }} component="div">
                         {pizza.name}
                         <IconButton color="primary" size="small" onClick={() => navigate(`/pizzas/menu/${username}/${id}`)}>
-                            <InfoIcon />
+                            <InfoIcon color='success'/>
                         </IconButton>
                     </Typography>
                 </Box>
                 <Typography sx={{ display: "flex", justifyContent: "space-between" }}>
                     <Box sx={{ mixWidth: 20 }}>
                         <FormControl size="medium">
-                            <InputLabel id="demo-simple-select-label">Varients🍕</InputLabel>
+                            <InputLabel id="demo-simple-select-label"  sx={{color:"whitesmoke"}}>Varients🍕</InputLabel>
                             <Select
+                            fullWidth
+                            color='primary'
+                            sx={{color:"whitesmoke"}}
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 value={Variants}
@@ -83,8 +86,10 @@ export function Pizzas({ pizza, id, username }) {
                     </Box>
                     <Box sx={{ mixWidth: 20 }}>
                         <FormControl size="medium">
-                            <InputLabel id="demo-simple-select-label">Quantity🤔</InputLabel>
+                            <InputLabel id="demo-simple-select-label" sx={{color:"whitesmoke"}}>Quantity🤔</InputLabel>
                             <Select
+                            fullWidth
+                            sx={{color:"whitesmoke"}}
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 value={Quantity}
@@ -99,11 +104,16 @@ export function Pizzas({ pizza, id, username }) {
                     </Box>
                 </Typography>
                 <Typography variant="body2" sx={{ display: "flex", justifyContent: "space-between", gap: 1, marginTop: "15px" }}>
-                    <Typography variant="h6">Price:{price}</Typography>
+                    <Typography variant="h6"sx={{color:"whitesmoke"}}>Price: {price}</Typography>
                     <Button variant="contained" sx={{ cursor: "pointer", fontSize: "13px" }} color="success" onClick={()=> addtoCart(pizza, Quantity, Variants, price)}>Add to Cart</Button>
                 </Typography>
             </CardContent>
         </Card>
+        <UsernameContext.Provider values={username}>{children}</UsernameContext.Provider>
     </>;
 }
 
+const useUsernameContext = () => {
+    return useContext(UsernameContext)
+}
+export { Pizzas, useUsernameContext}

@@ -57,13 +57,21 @@ export function PizzasList() {
       },
     },
   }));
+  if(!token){
+    navigate('/')
+  }
+  function handleClick(){
+    localStorage.clear();
+    window.location.reload();
+    navigate('/')
+  }
   return (
     <>
       <div className="home-pz">
         <AppBar className="navbar" position="fixed">
           <Toolbar>
             <Typography
-              onClick={() => navigate("/pizzas/menu")}
+              onClick={handleClick}
               className="logo"
               variant="h6"
               component="div"

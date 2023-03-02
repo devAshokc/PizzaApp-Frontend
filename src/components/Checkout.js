@@ -70,7 +70,7 @@ if(!token){
   return <>
    <AppBar className='navbar' position="static">
             <Toolbar>
-                <Typography onClick={() => navigate('/pizzas/menu')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Typography className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Piz<span className='logo-F'>za</span>Hunt
                 </Typography>
                 <Button onClick={() => navigate('/pizzas/menu/cart')} color="inherit">Cart</Button>

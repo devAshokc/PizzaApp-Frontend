@@ -63,7 +63,7 @@ export function Login() {
     }
 
     return (
-        <div className='home-sd'>
+        <div className='home-login'>
             <AppBar className='navbar' position="relative">
                 <Toolbar>
                     <Typography onClick={() => navigate('/')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>

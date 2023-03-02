@@ -10,7 +10,47 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  opacity: 0.90;
+  /* opacity: 0.90; */
+}
+.pizza-sd {
+  content: "";
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://images.squarespace-cdn.com/content/v1/58bdca902e69cf9dc75b5864/1572987284892-E1PZVU8E8RBJJI03OQGE/Websize0001.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  /* opacity: 0.90; */
+}
+.home-signup {
+  content: "";
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://www.svapinfotech.com/data/media/orginal/food-delivery-2-5459.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+.home-login {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://www.svapinfotech.com/data/media/orginal/food-delivery-2-5459.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .order-success {
@@ -54,7 +94,8 @@
 }
 
 .home-pz {
-  background-image: url("https://t4.ftcdn.net/jpg/02/80/76/25/360_F_280762521_j1sQEgHTmtfoUcAEgoPt1gdBu6yinZQN.jpg");
+  position: absolute;
+  background-image: url("https://www.buffalopizzayork.co.uk/image/cache/data/banner-1920x726.jpg");
   background-size: cover;
   object-fit: cover;
   background-repeat: no-repeat;

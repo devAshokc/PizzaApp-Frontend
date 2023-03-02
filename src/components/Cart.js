@@ -7,10 +7,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { useCartContext } from './context/CartContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
+import { useUsernameContext } from './Pizzas';
 
 function Cart() {
-
     const { cart, removeItem, setDecrease, setIncrease, clearCart, total_price, total_items } = useCartContext()
+    // const  {username} = useUsernameContext()
     let navigate = useNavigate()
 
      const token = localStorage.getItem("Authorization")
@@ -22,7 +23,7 @@ function Cart() {
   return <>
    <AppBar className='navbar' position="static">
             <Toolbar>
-                <Typography onClick={() => navigate('/pizzas/menu')} className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Typography  className='logo' variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Piz<span className='logo-F'>za</span>Hunt
                 </Typography>
                 <Button onClick={() => navigate('/pizzas/menu/cart/checkout')} color="inherit">Checkout</Button>
@@ -32,6 +33,7 @@ function Cart() {
 
 {
     cart.length > 0  && cart ? cart.map((e,i) => {
+
         const { _id, name, image, price, Variants, Quantity } = e
         // console.log(price)
         // let total = price * Quantity
@@ -73,6 +75,7 @@ function Cart() {
 <hr/>
 <Box sx={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
 <Button variant="contained" color='success' sx={{padding:"7px 15px",margin:"8px 0px 8px 0px"}} onClick={() => navigate(-1)}>Continue Shopping 😋</Button>
+{/* `pizzas/menu/${username}` */}
 {
     cart.length > 0 && cart ? <Button variant="contained" color='success' sx={{padding:"7px 15px",margin:"8px 0px 8px 0px"}} onClick={clearCart}>Clear Cart</Button>
     :
