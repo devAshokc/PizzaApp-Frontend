@@ -49,12 +49,16 @@ export function Login() {
                         // console.log(data.message)
                         // console.log(localStorage)
                         toast.success('Successful login 🎊🎊!',{
-                            position:toast.POSITION.TOP_RIGHT
+                            position: "top-center",
+                            autoClose: 2000,
+                            color:"white"
                         })
                         navigate(`/pizzas/menu/${loginUser.username}`)
                     } else {
-                        toast.error('Opps Invalid Credentials!',{
-                            position:toast.POSITION.TOP_RIGHT
+                        toast.error('Opps Invalid Credentials 😥😥!',{
+                            position: "top-right",
+                            autoClose: 3000,
+                            color:"white"
                         })
                     }
                 }

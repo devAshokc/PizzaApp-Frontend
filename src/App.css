@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  /* opacity: 0.90; */
+  opacity: 0.90;
 }
 .pizza-sd {
   content: "";
@@ -24,7 +24,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  /* opacity: 0.90; */
+  opacity: 0.90;
 }
 .home-signup {
   content: "";
@@ -38,6 +38,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  opacity: 0.90;
 }
 .home-login {
   content: "";
@@ -51,6 +52,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  opacity: 0.90;
 }
 
 .order-success {
@@ -95,10 +97,13 @@
 
 .home-pz {
   position: absolute;
-  background-image: url("https://www.buffalopizzayork.co.uk/image/cache/data/banner-1920x726.jpg");
+  background-image: url(" https://img.freepik.com/free-vector/restaurant-mural-wallpaper_23-2148707022.jpg?w=996&t=st=1677876978~exp=1677877578~hmac=66462d953e622f248ea5a004eb0b0bc4232bf2ed4ea768029835bbcb39541e2f");
   background-size: cover;
   object-fit: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
+/* https://img.freepik.com/free-vector/restaurant-mural-wallpaper_23-2148707022.jpg?w=996&t=st=1677876978~exp=1677877578~hmac=66462d953e622f248ea5a004eb0b0bc4232bf2ed4ea768029835bbcb39541e2f */
+
+/* https://www.buffalopizzayork.co.uk/image/cache/data/banner-1920x726.jpg */

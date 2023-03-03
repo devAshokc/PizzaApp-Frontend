@@ -28,7 +28,9 @@ const CartProvider = ({ children }) => {
     const addtoCart = (pizza, Quantity, Variants, price) => {
         dispatch({type:"ADD_TO_CART", payload:{pizza, Quantity, Variants, price}})
         toast.success('Items Added to the cart🍕🎊',{
-            position:toast.POSITION.TOP_LEFT
+            position: "top-center",
+            autoClose: 2000,
+            color:"white"
         })
     }
     const removeItem = (_id) => {

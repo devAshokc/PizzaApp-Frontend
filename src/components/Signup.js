@@ -48,12 +48,16 @@ export function Signup() {
             .then((data) => data.json())
             .then((data) => {
                 if (data.message === "Username already exists") {
-                    toast.error('Username already exists!', {
-                        position: toast.POSITION.TOP_RIGHT
+                    toast.error('Username already exists🫡!',{
+                        position: "top-right",
+                        autoClose: 3000,
+                        color:"white"
                     });
                 } else {
-                    toast.success('Successfully Created Account!', {
-                        position: toast.POSITION.TOP_RIGHT
+                    toast.success('Account Created Successfully 💯✨!',{
+                        position: "top-right",
+                        autoClose: 3000,
+                        color:"white"
                     });
                     navigate('/users/login')
                 }

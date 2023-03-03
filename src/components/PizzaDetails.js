@@ -9,6 +9,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { styled } from "@mui/material/styles";
 import { Button, AppBar, Toolbar, Typography } from "@mui/material";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function PizzaDetails() {
   const navigate = useNavigate();
@@ -56,9 +58,22 @@ export function PizzaDetails() {
     },
   }));
   const [value, setValue] = React.useState(2);
+  const rating =(event, newValue) => {
+    setValue(newValue);
+    toast.success('Thank you 🎊🎊!', {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      })
+  }
   return (
     <>
-      <div className="pizza-sd">
+      {/* <div className="pizza-sd"> */}
         <AppBar className="navbar" position="static">
           <Toolbar>
             <Typography
@@ -116,16 +131,15 @@ export function PizzaDetails() {
                 textAlign: { xs: "left", sm: "left" },
               }}
             >
-              <h1 style={{ fontSize: "20px", color: "whitesmoke" }}>
+              <h1 style={{ fontSize: "20px" }}>
                 {PizzaDetail.name}
               </h1>
                 <Rating
                 sx={{backgroundColor:"whitesmoke", borderRadius:"5%"}}
                   name="simple-controlled"
                   value={value}
-                  onChange={(event, newValue) => {
-                    setValue(newValue);
-                  }}
+                  onChange={rating}
+                  
                 />
               <h1 style={styles}>
                 {PizzaDetail.category}
@@ -141,7 +155,7 @@ export function PizzaDetails() {
             </Box>
           </Box>
         </Box>
-      </div>
+      {/* </div> */}
     </>
   );
 }

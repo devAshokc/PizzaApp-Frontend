@@ -38,7 +38,7 @@ const UsernameContext = React.createContext()
                 margin: 2,
                 width: "300px",
                 borderRadius: 5,
-                backgroundColor:"hsl(0deg 1% 15%)"
+                backgroundColor:"hsl(0deg 1% 18%)"
             }}>
 
             <Box
@@ -48,7 +48,7 @@ const UsernameContext = React.createContext()
                     cursor: "pointer",
                     objectFit: 'contain',
                     objectPosition: 'center',
-                    height: '299px',
+                    height: '200px',
                     width: { xs: "100%", md: "100%" },
                     borderRadius: "2%"
                 }}
@@ -60,7 +60,7 @@ const UsernameContext = React.createContext()
                     <Typography variant="h8" sx={{ marginBottom: "15px", fontSize: "1rem", color:"whitesmoke" }} component="div">
                         {pizza.name}
                         <IconButton color="primary" size="small" onClick={() => navigate(`/pizzas/menu/${username}/${id}`)}>
-                            <InfoIcon color='success'/>
+                            <InfoIcon />
                         </IconButton>
                     </Typography>
                 </Box>
@@ -104,7 +104,7 @@ const UsernameContext = React.createContext()
                     </Box>
                 </Typography>
                 <Typography variant="body2" sx={{ display: "flex", justifyContent: "space-between", gap: 1, marginTop: "15px" }}>
-                    <Typography variant="h6"sx={{color:"whitesmoke"}}>Price: {price}</Typography>
+                    <Typography variant="h6"sx={{color:"whitesmoke"}}>Price: ₹{price} /-</Typography>
                     <Button variant="contained" sx={{ cursor: "pointer", fontSize: "13px" }} color="success" onClick={()=> addtoCart(pizza, Quantity, Variants, price)}>Add to Cart</Button>
                 </Typography>
             </CardContent>
